@@ -136,6 +136,75 @@ public class RisingDarkness : Mod
                 //End import
                 
         }
+                
+                item = pl.discord;
+                
+                if(item != null)
+                {
+                    
+                    //Same as above.
+                    //Rod of Discord:
+
+					Vector2 vector14;
+					vector14.X = (float)Main.mouseX + Main.screenPosition.X;
+					if (player.gravDir == 1f)
+					{
+						vector14.Y = (float)Main.mouseY + Main.screenPosition.Y - (float)player.height;
+					}
+					else
+					{
+						vector14.Y = Main.screenPosition.Y + (float)Main.screenHeight - (float)Main.mouseY;
+					}
+					vector14.X -= (float)(player.width / 2);
+					if (vector14.X > 50f && vector14.X < (float)(Main.maxTilesX * 16 - 50) && vector14.Y > 50f && vector14.Y < (float)(Main.maxTilesY * 16 - 50))
+					{
+						int num245 = (int)(vector14.X / 16f);
+						int num246 = (int)(vector14.Y / 16f);
+						if ((Main.tile[num245, num246].wall != 87 || (double)num246 <= Main.worldSurface || NPC.downedPlantBoss) && !Collision.SolidCollision(vector14, player.width, player.height))
+						{
+							player.Teleport(vector14, 1, 0);
+							NetMessage.SendData(65, -1, -1, "", 0, (float)player.whoAmI, vector14.X, vector14.Y, 1, 0, 0);
+							if (player.chaosState)
+							{
+								player.statLife -= player.statLifeMax2 / 7;
+								if (Lang.lang <= 1)
+								{
+									string deathText = " didn't materialize";
+									if (Main.rand.Next(2) == 0)
+									{
+										if (player.Male)
+										{
+											deathText = "'s legs appeared where his head should be";
+										}
+										else
+										{
+											deathText = "'s legs appeared where her head should be";
+										}
+									}
+									if (player.statLife <= 0)
+									{
+										player.KillMe(1.0, 0, false, deathText);
+									}
+								}
+								else if (player.statLife <= 0)
+								{
+									player.KillMe(1.0, 0, false, "");
+								}
+								player.lifeRegenCount = 0;
+								player.lifeRegenTime = 0;
+							}
+							player.AddBuff(88, 360, true);
+                            
+                            pl.discord = null;
+                            
+                        
+                        
+						}
+					
+                    
+                 }
+            }
+                
             
         }
 }

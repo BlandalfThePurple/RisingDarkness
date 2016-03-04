@@ -30,7 +30,9 @@ namespace RisingDarkness
         public int musicIndex = 0;
         
         public Item magicMirror = null;
+        public Item discord = null;
         public int usedFor = 0;
+        public int dcd = 0;
         
         public bool unpressTeleport = false;
         public bool unpressTeleport2 = false;
