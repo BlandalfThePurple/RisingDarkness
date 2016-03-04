@@ -12,7 +12,7 @@ namespace RisingDarkness.Buffs
 		{
 			Main.buffName[this.Type] = "Drunk";
 			Main.buffTip[this.Type] = "You are under the influence!";
-            
+            Main.debuff[Type] = true;
 		}
 
 		public override void Update(Player player, ref int buffIndex)
