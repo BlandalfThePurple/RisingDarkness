@@ -125,11 +125,12 @@ namespace RisingDarkness
         if(unpressTeleport2)
         {
             unpressTeleport = true;
-            Main.NewText("PENIS");
+            
         }
         else
         {
             unpressTeleport = false;
+            
         }
         hasPlayer2 = false;
         hasAutoPlayer2 = false;

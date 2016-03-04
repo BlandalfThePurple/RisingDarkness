@@ -51,9 +51,8 @@ public class RisingDarkness : Mod
 
             }
         
-        if(name == "Teleporty Stuff" && pl.hasAutoPlayer)
+        if(name == "Teleporty Stuff" && pl.hasAutoPlayer2)
         {
-            Main.NewText("MYAH");
             pl.unpressTeleport2 = true;
             pl.pressLong++;
         }
