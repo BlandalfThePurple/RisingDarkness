@@ -106,7 +106,7 @@ namespace RisingDarkness.Items
 		player.accStopwatch = true;
 		player.accOreFinder = true;
 		player.accCritterGuide = true;
-		player.accDreamCatcher = true;;
+		player.accDreamCatcher = true;
         }
         
         public override void UpdateEquip(Player player)
