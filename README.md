@@ -10,6 +10,8 @@ the fluffy - one piece of concept art
 
 rred - maybe some code in the future idk
 
+teddyshankers - same as above
+
 me - all of the everything else
 
 you - for managing to dig this up. seriously.

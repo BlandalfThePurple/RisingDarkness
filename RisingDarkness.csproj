@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8069AA45-FBD4-44A4-8A8F-C93834051DCD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>ClassLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>RisingDarkness</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FNA">
+      <HintPath>..\..\..\..\..\..\Downloads\Lib\FNA.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Terraria">
+      <HintPath>..\..\..\..\..\..\Downloads\Lib\Terraria.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Buffs\Drunk.png" />
+    <Content Include="build.txt" />
+    <Content Include="description.txt" />
+    <Content Include="Items\AnvilItem.png" />
+    <Content Include="Items\BarItem.png" />
+    <Content Include="Items\Booze.png" />
+    <Content Include="Items\CranBar.png" />
+    <Content Include="Items\Cranberry.png" />
+    <Content Include="Items\CranJuice.png" />
+    <Content Include="Items\CranPot.png" />
+    <Content Include="Items\CranSeeds.png" />
+    <Content Include="Items\CranWine.png" />
+    <Content Include="Items\DrinkingMartini.png" />
+    <Content Include="Items\ForgeItem.png" />
+    <Content Include="Items\HallowedGlove.png" />
+    <Content Include="Items\JuicerItem.png" />
+    <Content Include="Items\LeftArrow.png" />
+    <Content Include="Items\MartiniGlass.png" />
+    <Content Include="Items\MartiniItem.png" />
+    <Content Include="Items\MPiece1.png" />
+    <Content Include="Items\MPiece2.png" />
+    <Content Include="Items\MPiece3.png" />
+    <Content Include="Items\MusicPlayer.png" />
+    <Content Include="Items\None.png" />
+    <Content Include="Items\RightArrow.png" />
+    <Content Include="Items\SmartGlove.png" />
+    <Content Include="Items\Smartphone.png" />
+    <Content Include="Items\Walker.png" />
+    <Content Include="Sounds\Item\ehhhhh.wav" />
+    <Content Include="Sounds\Item\MmmCranberries.wav" />
+    <Content Include="Tiles\Bar.png" />
+    <Content Include="Tiles\CranBarPlaced.png" />
+    <Content Include="Tiles\CranPlant.png" />
+    <Content Include="Tiles\CrimsonForge.png" />
+    <Content Include="Tiles\Juicer.png" />
+    <Content Include="Tiles\Martini.png" />
+    <Content Include="Tiles\RedAnvil.png" />
+    <Content Include="TODO.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Buffs\Drunk.cs" />
+    <Compile Include="DarkPlayer.cs" />
+    <Compile Include="Items\ActuallyPinkGel.cs" />
+    <Compile Include="Items\Booze.cs" />
+    <Compile Include="Items\PortaHole.cs" />
+    <Compile Include="Items\TrueGlove.cs" />
+    <Compile Include="Items\Goblet.cs" />
+    <Compile Include="Items\CranBar.cs" />
+    <Compile Include="Items\Cranberry.cs" />
+    <Compile Include="Items\CranJuice.cs" />
+    <Compile Include="Items\CranPot.cs" />
+    <Compile Include="Items\CranWine.cs" />
+    <Compile Include="Items\CSeedsGen.cs" />
+    <Compile Include="Items\DrinkingMartini.cs" />
+    <Compile Include="Items\HallowedGlove.cs" />
+    <Compile Include="Items\MartiniGlass.cs" />
+    <Compile Include="Items\MPiece1.cs" />
+    <Compile Include="Items\MPiece2.cs" />
+    <Compile Include="Items\MPiece3.cs" />
+    <Compile Include="Items\MusicPlayer.cs" />
+    <Compile Include="Items\Potion.cs" />
+    <Compile Include="Items\SmartGlove.cs" />
+    <Compile Include="Items\Smartphone.cs" />
+    <Compile Include="Items\TileItems\AnvilItem.cs" />
+    <Compile Include="Items\TileItems\BarItem.cs" />
+    <Compile Include="Items\TileItems\CranSeeds.cs" />
+    <Compile Include="Items\TileItems\ForgeItem.cs" />
+    <Compile Include="Items\TileItems\JuicerItem.cs" />
+    <Compile Include="Items\TileItems\MartiniItem.cs" />
+    <Compile Include="Items\Walker.cs" />
+    <Compile Include="RisingDarkness.cs" />
+    <Compile Include="Sounds\Item\ehhhhh.cs" />
+    <Compile Include="Sounds\Item\MmmCranberries.cs" />
+    <Compile Include="Tiles\Bar.cs" />
+    <Compile Include="Tiles\CranBarPlaced.cs" />
+    <Compile Include="Tiles\CranPlant.cs" />
+    <Compile Include="Tiles\CrimsonForge.cs" />
+    <Compile Include="Tiles\Juicer.cs" />
+    <Compile Include="Tiles\Martini.cs" />
+    <Compile Include="Tiles\RedAnvil.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include=".git\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+</Project>

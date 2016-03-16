@@ -32,7 +32,7 @@ namespace RisingDarkness.Items
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.DirtBlock, 1);
-            recipe.AddTile(18);
+            recipe.AddTile(TileID.WorkBenches);
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
         }

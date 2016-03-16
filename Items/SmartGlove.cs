@@ -11,20 +11,20 @@ namespace RisingDarkness.Items
     
     public class SmartGlove : ModItem
     {
-        public bool ground = true;
+        public int pressLong = -1;
         
         public override void SetDefaults()
         {
             item.name = "Smart Glove";
-            item.width = 20;
-            item.height = 20;
+            item.width = 10;
+            item.height = 10;
             item.rare = 11;
             item.maxStack = 1;
             item.toolTip = "Those kids and their new-fangled gadgetry...";
             item.value = Item.buyPrice(5,50,0,0);
-            item.useAnimation = 120;
+            item.useAnimation = 2;
 			item.useTime = 120;
-			item.useStyle = 2;
+			item.useStyle = 1;
             item.accessory = true;
         }
         
@@ -35,7 +35,7 @@ namespace RisingDarkness.Items
             
             if(player.altFunctionUse != 2)
             {
-               pl.magicMirror = item;
+                pl.magicMirror = item;
             }
             else
             {
@@ -56,14 +56,24 @@ namespace RisingDarkness.Items
            pl.hasPlayer2 = true;
            pl.hasAutoPlayer2 = true;
            
-           if(pl.unpressTeleport3)
+           if(pl.pressLong == pressLong)
            {
-               Main.NewText("Flag1");
-               
-               player.altFunctionUse = 0;
-               pl.pressLong = 0;
-               UseItem(player);
+                //Main.NewText("Flag1");
+
+                if (!pl.mirrorUsed)
+                {
+                    player.altFunctionUse = 0;
+                    pl.pressLong = 0;
+                    UseItem(player);
+                }
+                else
+                {
+                    pl.mirrorUsed = false;
+                }
            }
+
+           
+           pressLong = pl.pressLong != 0 ? pl.pressLong : -1;
            
         if(player.accCompass < 1)
         {
