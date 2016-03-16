@@ -35,7 +35,7 @@ namespace RisingDarkness.Items
             
             if(player.altFunctionUse != 2)
             {
-               pl.magicMirror = item;
+                pl.magicMirror = item;
             }
             else
             {
@@ -58,12 +58,20 @@ namespace RisingDarkness.Items
            
            if(pl.pressLong == pressLong)
            {
-               //Main.NewText("Flag1");
-               
-               player.altFunctionUse = 0;
-               pl.pressLong = 0;
-               UseItem(player);
+                //Main.NewText("Flag1");
+
+                if (!pl.mirrorUsed)
+                {
+                    player.altFunctionUse = 0;
+                    pl.pressLong = 0;
+                    UseItem(player);
+                }
+                else
+                {
+                    pl.mirrorUsed = false;
+                }
            }
+
            
            pressLong = pl.pressLong != 0 ? pl.pressLong : -1;
            

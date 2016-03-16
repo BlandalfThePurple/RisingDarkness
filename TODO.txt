@@ -1,8 +1,11 @@
 * Finish Portable Wormhole
-    * Draw arrows
-    - Draw heads
+    * Fix selection text
     - Integrate UnityTeleport() from class Main
 - Add alcohol system
 - Terra Boots?
+- Lastu Cresto?
 - Cranboss?
 - Mister Baby Bubble Butt Toucher's Butt Touching Baby Bubble?
+- The Mooner?
+- Cranweapons?
+- More bosses? (Uuuuuugh....)

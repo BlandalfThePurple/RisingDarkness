@@ -1,9 +1,11 @@
 using System;
+using System.IO;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using RisingDarkness;
+using Terraria.DataStructures;
 
 namespace RisingDarkness
 {
@@ -27,17 +29,26 @@ namespace RisingDarkness
         public bool hasPlayer2 = false;
         public bool hasAutoPlayer = false;
         public bool hasAutoPlayer2 = false;
+        public bool hasTruePlayer = false;
+        public bool hasTruePlayer2 = false;
         public int musicIndex = 0;
         
         public Item magicMirror = null;
         public Item discord = null;
         public int usedFor = 0;
         public int dcd = 0;
+        public bool mirrorUsed = false;
         
         public bool unpressTeleport = false;
         public bool unpressTeleport2 = false;
         public bool unpressTeleport3 = false;
         public int pressLong = 0;
+
+        public int selPlayer = -1;
+        public int teleHold = 0;
+        public bool telePress = false;
+        public bool telePress2 = false;
+        public bool telePrev = false;
         
         public void Drink()
         {
@@ -47,6 +58,29 @@ namespace RisingDarkness
         public void Music()
         {
             Music(false, 1);
+        }
+        
+        public void NewText(string text, int r, int g, int b)
+        {
+            Main.NewText(text, (byte)r, (byte)g, (byte)b);
+        }
+        public void NewText(string text)
+        {
+            NewText(text, 255, 255, 255);
+        }
+        
+        public void ClearText()
+        {
+            for(int i = 0; i < 7; i++)
+            {
+                NewText("");
+            }
+        }
+        
+        public void ClearedText(string text)
+        {
+            ClearText();
+            NewText(text);
         }
         
         public void Music(bool reset, int increase)
@@ -68,6 +102,45 @@ namespace RisingDarkness
             
         }
         
+        public bool IncrementPlayer()
+        {
+           return IncrementPlayer(1);
+        }
+        
+        public bool IncrementPlayer(int up)
+        {
+
+           int invalid = 0;
+
+            if(selPlayer == -1)
+            {
+                if(up > 0)
+                {
+                    selPlayer = 0;
+                }
+                else if(up < 0)
+                {
+                    selPlayer = 255;
+                }
+            }
+            while (selPlayer != -1 && !(Main.player[selPlayer].active && !Main.player[selPlayer].dead && selPlayer != Main.myPlayer && ((!Main.player[Main.myPlayer].hostile && !Main.player[selPlayer].hostile) || (Main.player[Main.myPlayer].team == Main.player[selPlayer].team && Main.player[selPlayer].team != 0) || selPlayer == Main.myPlayer)))
+            {
+                selPlayer += up;
+                invalid += up;
+                if(selPlayer >= 256)
+                {
+                    selPlayer = -1;
+
+                    if (invalid >= 256)
+                    {
+                        return false;
+                    }
+                }
+
+            }
+            return true;
+
+        }
     
     public override void PostUpdateBuffs()
     {
@@ -94,55 +167,13 @@ namespace RisingDarkness
     }    
     public override void PostUpdateRunSpeeds()
     {
-        player.runAcceleration += addToStat(drunkAccl);
-        player.maxRunSpeed += addToStat(drunkSpd);
+        player.runAcceleration += AddToStat(drunkAccl);
+        player.maxRunSpeed += AddToStat(drunkSpd);
     }
     
-    public void PostUpdate()
+    public float AddToStat(int drunkStat)
     {
-        if(hasPlayer2)
-        {
-            hasPlayer = true;
-        }
-        else
-        {
-            hasPlayer = false;
-        }
-        if(hasAutoPlayer2)
-        {
-            hasAutoPlayer = true;
-        }
-        else
-        {
-            hasAutoPlayer = false;
-        }
-        if(!unpressTeleport2 && unpressTeleport)
-        {
-            unpressTeleport3 = true;
-        }
-        else
-        {
-            unpressTeleport3 = false;
-        }
-        if(unpressTeleport2)
-        {
-            unpressTeleport = true;
-            
-        }
-        else
-        {
-            unpressTeleport = false;
-            
-        }
-        hasPlayer2 = false;
-        hasAutoPlayer2 = false;
-        unpressTeleport2 = false;
-    
-    }
-    
-    public int addToStat(int drunkStat)
-    {
-        return 0;
+        return (float)drunkStat * 0.1f;
         
     }
     

@@ -1,5 +1,6 @@
 using System;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -12,7 +13,8 @@ public class RisingDarkness : Mod
     public bool firstPress = true;
     public bool firstPress2 = true;
     
-    public override void SetModInfo(out String name, ref ModProperties properties){
+    public override void SetModInfo(out String name, ref ModProperties properties)
+    {
         
         name = "RisingDarkness";
         properties.Autoload = true;
@@ -27,6 +29,7 @@ public class RisingDarkness : Mod
         RegisterHotKey("Next Song", "OemOpenBrackets");
         RegisterHotKey("Clear Song", "OemQuotes");
         RegisterHotKey("Teleporty Stuff", "Q");
+        RegisterHotKey("Portable Wormhole", "LeftAlt");
         
     }
     
@@ -37,7 +40,10 @@ public class RisingDarkness : Mod
         
         if (Main.myPlayer != -1 && !Main.gameMenu)
         {
-            if(pl.hasPlayer2 && firstPress){
+            if(firstPress)
+            {
+            if(pl.hasPlayer2)
+            {
             if(name == "Prev Song")
             {
                 pl.Music(false, -1);
@@ -50,11 +56,19 @@ public class RisingDarkness : Mod
             }
 
             }
+            
+            }
         
         if(name == "Teleporty Stuff" && pl.hasAutoPlayer2)
         {
-            pl.unpressTeleport2 = true;
             pl.pressLong++;
+        }
+        
+        if(name == "Portable Wormhole" && pl.hasTruePlayer)
+        {
+            pl.telePress2 = true;
+            pl.teleHold++;
+
         }
         
             firstPress2 = false;
@@ -62,11 +76,72 @@ public class RisingDarkness : Mod
         
     }
     
-    		public override void UpdateMusic(ref int music)
+        public override void UpdateMusic(ref int music)
 		{
             
             Player player = Main.player[Main.myPlayer];
             DarkPlayer pl = ((DarkPlayer)player.GetModPlayer(this, "DarkPlayer"));
+
+            if(pl.teleHold > 30 && !pl.telePrev)
+            {
+                if (pl.selPlayer == -1)
+                {
+                    pl.NewText("No player selected!", 255, 0, 0);
+                }
+                else
+                {
+                    player.UnityTeleport(Main.player[pl.selPlayer].position);
+                }
+                pl.telePrev = true;
+                pl.teleHold = 0;
+            }
+
+            if (!pl.telePress2 && pl.telePress)
+            {
+                if (!pl.telePrev)
+                {
+                    // pl.NewText("Early");
+                    // pl.ClearText();
+                    // pl.NewText("Before");
+
+                    if (pl.IncrementPlayer())
+                    {
+                        pl.NewText("[Selected] > " + Main.player[pl.selPlayer].name);
+                    }
+                    else
+                    {
+                        pl.NewText("No valid players to select!", 255, 0, 0);
+                    }
+                    // pl.NewText("After");
+                }
+                else
+                {
+                    pl.telePrev = false;
+                }
+                pl.teleHold = 0;
+            }
+
+            
+            if(!pl.telePress2)
+            {
+                pl.telePress = false;
+            }
+            else
+            {
+                pl.telePress = true;
+            }
+
+            if (!pl.hasTruePlayer2)
+            {
+                pl.hasTruePlayer = false;
+            }
+            else
+            {
+                pl.hasTruePlayer = true;
+            }
+
+            pl.hasTruePlayer2 = false;
+            pl.telePress2 = false;
             
             if(!firstPress2)
             {
@@ -130,7 +205,7 @@ public class RisingDarkness : Mod
                     
                     pl.magicMirror = null;
                     pl.usedFor = 0;
-                    
+                    pl.mirrorUsed = true;
 				}
                 
                 //End import
@@ -143,7 +218,6 @@ public class RisingDarkness : Mod
                 {
                     
                     //Same as above.
-                    //Rod of Discord:
 
 					Vector2 vector14;
 					vector14.X = (float)Main.mouseX + Main.screenPosition.X;
@@ -203,9 +277,10 @@ public class RisingDarkness : Mod
 					
                     
                  }
+                    //End import
             }
                 
-            
+
         }
 }
 
