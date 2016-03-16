@@ -1,0 +1,12 @@
+C:\Users\Jack\Documents\My Games\Terraria\ModLoader\Mod Sources\RisingDarkness\obj\Debug\RisingDarkness.csprojResolveAssemblyReference.cache
+C:\Users\Jack\Documents\My Games\Terraria\ModLoader\Mod Sources\RisingDarkness\bin\Debug\ClassLibrary.dll.config
+C:\Users\Jack\Documents\My Games\Terraria\ModLoader\Mod Sources\RisingDarkness\bin\Debug\ClassLibrary.dll
+C:\Users\Jack\Documents\My Games\Terraria\ModLoader\Mod Sources\RisingDarkness\bin\Debug\ClassLibrary.pdb
+C:\Users\Jack\Documents\My Games\Terraria\ModLoader\Mod Sources\RisingDarkness\bin\Debug\FNA.dll
+C:\Users\Jack\Documents\My Games\Terraria\ModLoader\Mod Sources\RisingDarkness\bin\Debug\Terraria.dll
+C:\Users\Jack\Documents\My Games\Terraria\ModLoader\Mod Sources\RisingDarkness\bin\Debug\Ionic.Zip.CF.dll
+C:\Users\Jack\Documents\My Games\Terraria\ModLoader\Mod Sources\RisingDarkness\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Jack\Documents\My Games\Terraria\ModLoader\Mod Sources\RisingDarkness\bin\Debug\MP3Sharp.dll
+C:\Users\Jack\Documents\My Games\Terraria\ModLoader\Mod Sources\RisingDarkness\bin\Debug\Steamworks.NET.dll
+C:\Users\Jack\Documents\My Games\Terraria\ModLoader\Mod Sources\RisingDarkness\obj\Debug\ClassLibrary.dll
+C:\Users\Jack\Documents\My Games\Terraria\ModLoader\Mod Sources\RisingDarkness\obj\Debug\ClassLibrary.pdb
